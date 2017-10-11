@@ -1,0 +1,55 @@
+<!--
+ Copyright (c) 2017 SkyzohLabs.be & contributors.
+
+ This software is released under the MIT License.
+ https://opensource.org/licenses/MIT
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{summary}}">
+    <meta name="keywords" content="tox, messenger, privacy, peer-to-peer, p2p, encrypted, encryption, secure, open-source, foss, free, skype like, discord replacement, telegram alternative, modern, communicate, talk, chat, im, surveillance, easy-to-use, no ads, network, decentralized, snowden, protocol, no servers, end-to-end, distributed, client, toxcore, instant messaging, voice, video, screen streaming, file transfers, group chats, 1337">
+    <meta name="author" content="SkyzohLabs <service@skyzohlabs.be>">
+
+    <!-- Open Graph Protocol meta tags (facebook, diaspora, etc). -->
+    <meta property="og:title" content="Tox - {{title}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tox.chat">
+    <meta property="og:image" content="images/icons/android-chrome-512x512.png">
+    <meta property="og:site_name" content="Tox">
+    <meta property="og:description" content="{{summary}}">
+
+    <!-- Twitter Card meta tags. -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:site" content="@SkyzohLabs">
+    <meta property="twitter:title" content="Tox - {{title}}">
+    <meta property="twitter:description" content="{{summary}}">
+    <meta property="twitter:image:src" content="images/icons/android-chrome-512x512.png">
+    <meta property="twitter:url" content="https://tox.chat">
+
+    <!-- Theme colors, apple touch icons, MS Tile images, etc. -->
+    <meta name="theme-color" content="#3F51B5">
+    <meta name="msapplication-TileColor" content="#3F51B5">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#3F51B5">
+    <link rel="stylesheet" href="dist.min.css">
+
+    <base href="">
+    <title>Tox - {{title}}</title>
+  </head>
+  <body>
+    <div id="wrapper" class="flex-full">
+      @include('partials.header')
+      @!yield($slot.main)
+      @include('partials.footer')
+    </div>
+
+    @include('partials.scripts')
+  </body>
+</html>

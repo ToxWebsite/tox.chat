@@ -26,6 +26,13 @@ adonis serve --dev --debug
 
 Now you can access it by clicking on http://127.0.0.1:3333. You can change the port by passing a `PORT`env variable.
 
+# Translating
+
+We use OneSky to handle the translation process.  
+Feel free to help by going on our [translation page](https://osljz2m.oneskyapp.com/collaboration/project?id=129664) ! :)
+
+If you don't like OneSky you can always send a pull-request :)
+
 # Sponsors
 
 <a href="https://www.browserstack.com">
