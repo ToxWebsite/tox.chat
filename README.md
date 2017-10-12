@@ -26,6 +26,16 @@ adonis serve --dev --debug
 
 Now you can access it by clicking on http://127.0.0.1:3333. You can change the port by passing a `PORT`env variable.
 
+# Testing
+
+Tests are super easy to write and are located in the `test` folder.
+To run tests, run the following in project root.
+
+```
+# Run tests
+adonis test
+```
+
 # CLI Commands
 
 AdonisJs allows us to define commands to help developing faster. Here's a list of the currently available ones. This might be outdated so feel free to run `adonis --help` in the project root.
