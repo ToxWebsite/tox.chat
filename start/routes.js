@@ -9,7 +9,11 @@ Route.group(() => {
   Route.get('features', 'FrontendController.features').as('features');
   Route.get('learn-more', 'FrontendController.learnMore').as('about');
   Route.get('downloads', 'FrontendController.downloads').as('download');
-  Route.get('sharer/:media', 'FrontendController.sharer').as('sharer:redirect');
+  
+  Route.get('sharer/fb/:postId', 'SharerController.facebook').as('sharer:fb');
+  Route.get('sharer/tw/:postId', 'SharerController.twitter').as('sharer:tw');
+  Route.get('sharer/gp/:postId', 'SharerController.googlePlus').as('sharer:gp');
+  Route.get('sharer/md/:postId', 'SharerController.medium').as('sharer:md');
 });
 
 // Blog stuff.
