@@ -32,15 +32,16 @@ class ExceptionHandler {
    * @return {void}
    */
   async handle (error, { request, response, view }) {
-    const isJSON = request.accepts(['html', 'json']) === 'json'
+    if (process.env.NODE_ENV === 'development') {
+      const isJSON = request.accepts(['html', 'json']) === 'json';
+      const formattedError = await this._getYouchError(error, request.request, isJSON);
+      response
+        .status(error.status)
+        .send(formattedError);
+      return;
+    }
 
     if (error.status == 404) {
-      if (process.env.NODE_ENV === 'development') {
-        const formattedError = await this._getYouchError(error, request.request, isJSON)
-        response.status(error.status).send(formattedError)
-        return
-      }
-
       response
         .status(error.status)
         .send(view.render(MapErrorCodeToView[error.status]));
