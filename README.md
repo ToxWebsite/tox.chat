@@ -26,6 +26,14 @@ adonis serve --dev --debug
 
 Now you can access it by clicking on http://127.0.0.1:3333. You can change the port by passing a `PORT`env variable.
 
+# CLI Commands
+
+AdonisJs allows us to define commands to help developing faster. Here's a list of the currently available ones. This might be outdated so feel free to run `adonis --help` in the project root.
+
+- `create:user` - Start an interactive shell to create an user.
+- `create:blog:category` - Start an interactive shell to create a blog tag.
+- `create:blog:post` - Start an interactive shell to create a blog post.
+
 # Translating
 
 We use OneSky to handle the translation process.  
