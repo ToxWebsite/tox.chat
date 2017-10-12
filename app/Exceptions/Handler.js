@@ -41,11 +41,9 @@ class ExceptionHandler {
       return;
     }
 
-    if (error.status == 404) {
-      response
-        .status(error.status)
-        .send(view.render(MapErrorCodeToView[error.status]));
-    }
+    response
+      .status(error.status)
+      .send(view.render('frontend.error'), { error });
   }
 
   /**
