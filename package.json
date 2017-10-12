@@ -1,6 +1,6 @@
 {
-  "name": "adonis-fullstack-app",
-  "version": "4.0.0",
+  "name": "tox-website",
+  "version": "0.1.0",
   "adonis-version": "4.0.0",
   "description": "Smallest possible application for adonisjs",
   "main": "index.js",
