@@ -1,15 +1,15 @@
-'use strict'
+'use strict';
 
 const { Command } = require('@adonisjs/ace');
 const BlogCategory = use('App/Models/BlogCategory');
 
 class CreateBlogCategory extends Command {
   static get signature () {
-    return 'create:blog:category'
+    return 'create:blog:category';
   }
 
   static get description () {
-    return 'Tell something helpful about this command'
+    return 'Create a new blog category/tag';
   }
 
   async handle (args, options) {
@@ -26,4 +26,4 @@ class CreateBlogCategory extends Command {
   }
 }
 
-module.exports = CreateBlogCategory
+module.exports = CreateBlogCategory;

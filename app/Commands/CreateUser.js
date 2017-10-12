@@ -1,15 +1,15 @@
-'use strict'
+'use strict';
 
 const { Command } = require('@adonisjs/ace');
 const User = use('App/Models/User');
 
 class CreateUser extends Command {
   static get signature () {
-    return 'create:user'
+    return 'create:user';
   }
 
   static get description () {
-    return 'Tell something helpful about this command'
+    return 'Create a new user';
   }
 
   async handle (args, options) {
@@ -27,4 +27,4 @@ class CreateUser extends Command {
   }
 }
 
-module.exports = CreateUser
+module.exports = CreateUser;
