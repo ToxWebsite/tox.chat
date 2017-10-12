@@ -4,7 +4,7 @@ const Schema = use('Schema');
 
 class BlogPostSchema extends Schema {
   up () {
-    this.createIfNotExists('blog_posts', (table) => {
+    this.create('blog_posts', (table) => {
       table.increments();
       table.integer('category_id').unsigned().references('id').inTable('blog_categories');
       table.integer('user_id').unsigned().references('id').inTable('users');
