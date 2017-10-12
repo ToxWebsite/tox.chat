@@ -1,4 +1,4 @@
 // Procfile
 
-release: echo "Release detected, do stuff required before run."
+release: ENV_SILENT=true node ace migration:run --force
 web: ENV_SILENT=true npm start
