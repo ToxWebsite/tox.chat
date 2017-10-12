@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "postinstall": "cp .env.example .env"
+    "postinstall": "cp .env.example .env",
     "test": "node ace test",
     "lint": "standard"
   },
