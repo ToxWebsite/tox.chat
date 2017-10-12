@@ -69,6 +69,24 @@ header.page-title {
 }
 header.page-title.overlap {
   height: 160px;
+  display: flex;
+  flex-flow: row nowrap;
+
+  .back-btn {
+    @include transition();
+    margin-top: 16px;
+    color: white;
+    padding: 0;
+
+    &:hover {
+      background-color: rgba(255,255,255,.3);
+    }
+  }
+
+  h1 {
+    flex: 1;
+    margin-top: 16px;
+  }
 }
 header.no-bg {
   @include global-padding(8px);

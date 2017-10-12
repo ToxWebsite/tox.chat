@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2017 skyzohkey
- * 
+ *
  * This software is released under the MIT License.
  * https://opensource.org/licenses/MIT
  */
@@ -22,7 +22,7 @@
   user-select: none;
 
   .material-icons:first-child {
-    margin-right: 8px; 
+    margin-right: 8px;
   }
 }
 
@@ -54,6 +54,20 @@
   span {
     padding-right: 8px !important;
   }
+}
+
+.btn.icon-round {
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  font-size: 32px;
+
+  &:hover {
+    background-color: #eee;
+
+  }
+
+  i { margin: 0; }
 }
 
 .btn.primary {

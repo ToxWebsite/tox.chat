@@ -1,0 +1,139 @@
+@debugger
+
+@component('layout.master', {
+  title: post.title,
+  summary: post.summary
+})
+<header class="page-title overlap">
+  <a href="{{ route('blog') }}" title="Go back to blog posts" class="btn icon-round back-btn">
+    <i class="mdi mdi-arrow-left"></i>
+  </a>
+  <h1>{{ post.title }}</h1>
+</header>
+<div id="blog-wrapper">
+  <div id="blog-posts">
+    <article class="card hover blog-article">
+      <header class="card-header">
+        <img src="https://picsum.photos/48x48" class="avatar">
+        <div class="text-container">
+          <h4>{{ author.username }}</h4>
+          <small><!-- TODO: Biography. --></small>
+        </div>
+      </header>
+      <div class="card-content">
+        {{{ post.html }}}
+      </div>
+      <footer class="card-footer">
+        <div class="btn-container left">
+          <a href="#" class="btn btn-icon">
+            <i class="mdi mdi-heart"></i>
+            <span class="text">{{post.likes}}</span>
+          </a>
+          <a href="#comments" class="btn btn-icon">
+            <i class="mdi mdi-comment"></i>
+            <span class="text">{{post.comments}}</span>
+          </a>
+        </div>
+        <div class="btn-container right">
+          <a href="{{ route('sharer:fb', { postId: post.id }) }}" class="btn" title="Share on Facebook !">
+            <i class="mdi mdi-facebook"></i>
+          </a>
+          <a href="{{ route('sharer:tw', { postId: post.id }) }}" class="btn" title="Share on Twitter !">
+            <i class="mdi mdi-twitter"></i>
+          </a>
+          <a href="{{ route('sharer:gp', { postId: post.id }) }}" class="btn" title="Share on Google+ !">
+            <i class="mdi mdi-google-plus"></i>
+          </a>
+          <a href="{{ route('sharer:md', { postId: post.id }) }}" class="btn" title="Share on Medium !">
+            <i class="mdi mdi-medium"></i>
+          </a>
+        </div>
+      </footer>
+    </article>
+    <h1>Comments ({{post.comments}})</h1>
+    <article class="card hover blog-article">
+      <header class="card-header">
+        <img src="https://picsum.photos/48x48" class="avatar">
+        <div class="text-container">
+          <h4>{{ author.username }}</h4>
+          <small><!-- TODO: Biography. --></small>
+        </div>
+      </header>
+      <div class="card-content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <footer class="card-footer">
+        <div class="btn-container left">
+          <a href="#" class="btn btn-icon">
+            <i class="mdi mdi-heart"></i>
+            <span class="text">{{post.likes}}</span>
+          </a>
+        </div>
+      </footer>
+    </article>
+    <article class="card hover blog-article">
+      <header class="card-header">
+        <img src="https://picsum.photos/48x48" class="avatar">
+        <div class="text-container">
+          <h4>{{ author.username }}</h4>
+          <small><!-- TODO: Biography. --></small>
+        </div>
+      </header>
+      <div class="card-content">
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <footer class="card-footer">
+        <div class="btn-container left">
+          <a href="#" class="btn btn-icon">
+            <i class="mdi mdi-heart"></i>
+            <span class="text">{{post.likes}}</span>
+          </a>
+        </div>
+      </footer>
+    </article>
+  </div>
+  <div id="sidebar">
+    <aside id="tags" class="card with-padding">
+      <header class="card-header no-padding">
+        <h1>Tags</h1>
+      </header>
+      <div id="tags-cloud" class="chip-container">
+        @each(tag in categories)
+          <a href="{{ route('blog:showTags', { slug: tag.slug }) }}" class="chip">
+            {{ tag.name }}
+          </a>
+        @else
+          <a class="chip">No tags added yet.</a>
+        @endeach
+      </div>
+    </aside>
+    <aside id="tags" class="card">
+      <header class="card-header">
+        <h1>Get in touch</h1>
+      </header>
+      <div class="list">
+        <a href="#">
+          <i class="mdi mdi-comment-processing-outline"></i>
+          Community IRC
+        </a>
+        <a href="#">
+          <i class="mdi mdi-twitter"></i> Follow us on Twitter!
+        </a>
+        <a href="#">
+          <i class="mdi mdi-facebook"></i> Like our Facebook page!
+        </a>
+        <a href="#">
+          <i class="mdi mdi-google-plus"></i> We are on Google+
+        </a>
+        <a href="#">
+          <i class="mdi mdi-github-circle"></i> Contribute on GitHub!
+        </a>
+      </div>
+    </aside>
+  </div>
+</div>
+@endcomponent

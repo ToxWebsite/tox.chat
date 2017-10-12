@@ -25,7 +25,6 @@ class CreateBlogPost extends Command {
       slug: await this.ask('Slug:'),
       summary: await this.ask('Summary:'),
       markdown: await this.openEditor('Markdown:'),
-      html: "",
       likes: 0,
       comments: 0,
     });
