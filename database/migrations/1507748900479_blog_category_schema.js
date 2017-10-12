@@ -4,7 +4,7 @@ const Schema = use('Schema');
 
 class BlogCategorySchema extends Schema {
   up () {
-    this.create('blog_categories', (table) => {
+    this.createIfNotExists('blog_categories', (table) => {
       table.increments();
       table.string('name', 80).notNullable().unique();
       table.string('slug', 80).notNullable().unique();
@@ -13,7 +13,7 @@ class BlogCategorySchema extends Schema {
   }
 
   down () {
-    this.drop('blog_categories');
+    this.dropIfExists('blog_categories');
   }
 }
 

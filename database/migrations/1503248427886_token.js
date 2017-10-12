@@ -4,7 +4,7 @@ const Schema = use('Schema');
 
 class TokensSchema extends Schema {
   up () {
-    this.create('tokens', table => {
+    this.createIfNotExists('tokens', table => {
       table.increments();
       table.integer('user_id').unsigned().references('id').inTable('users');
       table.string('token', 40).notNullable().unique();
@@ -14,7 +14,7 @@ class TokensSchema extends Schema {
   }
 
   down () {
-    this.drop('tokens');
+    this.dropIfExists('tokens');
   }
 }
 
