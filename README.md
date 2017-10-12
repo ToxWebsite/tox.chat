@@ -9,7 +9,7 @@ It uses AdonisJS for the back-end. Sass is used for the front-end styling.
 
 You can find the static version that serves mostly for design [here](https://github.com/SkyzohKey/tox-website).
 
-[Live demo @Heroku](https://tox-website.herokuapp.com/)
+[Live demo (beta.tox.chat)](http://beta.tox.chat)
 
 # Building
 This use Adonis as a build tool so you need to run the following:
