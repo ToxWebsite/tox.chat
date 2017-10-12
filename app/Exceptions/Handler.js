@@ -43,7 +43,7 @@ class ExceptionHandler {
 
     response
       .status(error.status)
-      .send(view.render('frontend.error'), { error: error });
+      .send(view.render('frontend.error', { error: error }));
   }
 
   /**
