@@ -3,7 +3,7 @@
 const Model = use('Model');
 
 class BlogPost extends Model {
-  author () {
+  user () {
     return this.hasOne('App/Models/User');
   }
 

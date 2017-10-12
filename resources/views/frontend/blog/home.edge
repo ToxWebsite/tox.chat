@@ -9,170 +9,49 @@
 </header>
 <div id="blog-wrapper">
   <div id="blog-posts">
+    @each(post in posts)
     <article class="card hover blog-article">
       <header class="card-header">
         <img src="https://picsum.photos/48x48" class="avatar">
         <div class="text-container">
-          <h4>SkyzohKey</h4>
-          <small>Lead developer of Konv.</small>
+          <h4>{{ post.user.username }}</h4>
+          <small><!-- TODO: Biography. --></small>
         </div>
       </header>
-      <a class="card-content" href="#">
-        <h1 class="title">Lorem ipsum dolor sit amet.</h1>
+      <a class="card-content" href="{{ route('blog:post', { slug: post.slug }) }}">
+        <h1 class="title">{{post.title}}</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          {{post.summary}}
         </p>
       </a>
       <footer class="card-footer">
         <div class="btn-container left">
           <span class="btn btn-icon">
             <i class="mdi mdi-heart"></i>
-            <span class="text">12</span>
+            <span class="text">{{post.likes}}</span>
           </span>
           <a href="#" class="btn btn-icon">
             <i class="mdi mdi-comment"></i>
-            <span class="text">41</span>
+            <span class="text">{{post.comments}}</span>
           </a>
         </div>
         <div class="btn-container right">
-          <a href="/sharer/fb" class="btn" title="Share on Facebook !">
+          <a href="{{ route('sharer:fb', { postId: post.id }) }}" class="btn" title="Share on Facebook !">
             <i class="mdi mdi-facebook"></i>
           </a>
-          <a href="/sharer/tw" class="btn" title="Share on Twitter !">
+          <a href="{{ route('sharer:tw', { postId: post.id }) }}" class="btn" title="Share on Twitter !">
             <i class="mdi mdi-twitter"></i>
           </a>
-          <a href="/sharer/gp" class="btn" title="Share on Google+ !">
+          <a href="{{ route('sharer:gp', { postId: post.id }) }}" class="btn" title="Share on Google+ !">
             <i class="mdi mdi-google-plus"></i>
           </a>
-          <a href="/sharer/medium" class="btn" title="Share on Medium !">
+          <a href="{{ route('sharer:md', { postId: post.id }) }}" class="btn" title="Share on Medium !">
             <i class="mdi mdi-medium"></i>
           </a>
         </div>
       </footer>
     </article>
-    <article class="card hover blog-article">
-      <header class="card-header">
-        <img src="https://picsum.photos/48x48" class="avatar">
-        <div class="text-container">
-          <h4>SkyzohKey</h4>
-          <small>Lead developer of Konv.</small>
-        </div>
-      </header>
-      <a class="card-content" href="#">
-        <h1 class="title">Lorem ipsum dolor sit amet.</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </a>
-      <footer class="card-footer">
-        <div class="btn-container left">
-          <span class="btn btn-icon">
-            <i class="mdi mdi-heart"></i>
-            <span class="text">12</span>
-          </span>
-          <a href="#" class="btn btn-icon">
-            <i class="mdi mdi-comment"></i>
-            <span class="text">41</span>
-          </a>
-        </div>
-        <div class="btn-container right">
-          <a href="/sharer/fb" class="btn" title="Share on Facebook !">
-            <i class="mdi mdi-facebook"></i>
-          </a>
-          <a href="/sharer/tw" class="btn" title="Share on Twitter !">
-            <i class="mdi mdi-twitter"></i>
-          </a>
-          <a href="/sharer/gp" class="btn" title="Share on Google+ !">
-            <i class="mdi mdi-google-plus"></i>
-          </a>
-          <a href="/sharer/medium" class="btn" title="Share on Medium !">
-            <i class="mdi mdi-medium"></i>
-          </a>
-        </div>
-      </footer>
-    </article>
-    <article class="card hover blog-article">
-      <header class="card-header">
-        <img src="https://picsum.photos/48x48" class="avatar">
-        <div class="text-container">
-          <h4>SkyzohKey</h4>
-          <small>Lead developer of Konv.</small>
-        </div>
-      </header>
-      <a class="card-content" href="#">
-        <h1 class="title">Lorem ipsum dolor sit amet.</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </a>
-      <footer class="card-footer">
-        <div class="btn-container left">
-          <span class="btn btn-icon">
-            <i class="mdi mdi-heart"></i>
-            <span class="text">12</span>
-          </span>
-          <a href="#" class="btn btn-icon">
-            <i class="mdi mdi-comment"></i>
-            <span class="text">41</span>
-          </a>
-        </div>
-        <div class="btn-container right">
-          <a href="/sharer/fb" class="btn" title="Share on Facebook !">
-            <i class="mdi mdi-facebook"></i>
-          </a>
-          <a href="/sharer/tw" class="btn" title="Share on Twitter !">
-            <i class="mdi mdi-twitter"></i>
-          </a>
-          <a href="/sharer/gp" class="btn" title="Share on Google+ !">
-            <i class="mdi mdi-google-plus"></i>
-          </a>
-          <a href="/sharer/medium" class="btn" title="Share on Medium !">
-            <i class="mdi mdi-medium"></i>
-          </a>
-        </div>
-      </footer>
-    </article>
-    <article class="card hover blog-article">
-      <header class="card-header">
-        <img src="https://picsum.photos/48x48" class="avatar">
-        <div class="text-container">
-          <h4>SkyzohKey</h4>
-          <small>Lead developer of Konv.</small>
-        </div>
-      </header>
-      <a class="card-content" href="#">
-        <h1 class="title">Lorem ipsum dolor sit amet.</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </a>
-      <footer class="card-footer">
-        <div class="btn-container left">
-          <span class="btn btn-icon">
-            <i class="mdi mdi-heart"></i>
-            <span class="text">12</span>
-          </span>
-          <a href="#" class="btn btn-icon">
-            <i class="mdi mdi-comment"></i>
-            <span class="text">41</span>
-          </a>
-        </div>
-        <div class="btn-container right">
-          <a href="/sharer/fb" class="btn" title="Share on Facebook !">
-            <i class="mdi mdi-facebook"></i>
-          </a>
-          <a href="/sharer/tw" class="btn" title="Share on Twitter !">
-            <i class="mdi mdi-twitter"></i>
-          </a>
-          <a href="/sharer/gp" class="btn" title="Share on Google+ !">
-            <i class="mdi mdi-google-plus"></i>
-          </a>
-          <a href="/sharer/medium" class="btn" title="Share on Medium !">
-            <i class="mdi mdi-medium"></i>
-          </a>
-        </div>
-      </footer>
-    </article>
+    @endeach
   </div>
   <div id="sidebar">
     <aside id="tags" class="card with-padding">
