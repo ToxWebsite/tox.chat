@@ -15,7 +15,7 @@ class BlogPostSchema extends Schema {
       table.string('html').notNullable();
       table.integer('likes').defaultTo(0);
       table.integer('comments').defaultTo(0);
-      table.timestamps()
+      table.timestamps();
     });
   }
 
