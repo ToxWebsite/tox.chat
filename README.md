@@ -22,11 +22,20 @@ cd tox-chat
 npm install -g @adonisjs/cli
 npm install
 
-# Start !
+# Start the webserver !
 adonis serve --dev --debug
 ```
 
 Now you can access it by clicking on http://127.0.0.1:3333. You can change the port by passing a `PORT`env variable.
+
+### Enabling live reload
+
+If you want to contribute, chances are you need live reload of sass and resources. That is super simple to do of course. You just need to run the following command in a new terminal/tab while keeping the webserver open.
+
+```
+# Start Gulp to watch for file change and do processing.
+gulp watch
+```
 
 # Testing
 
