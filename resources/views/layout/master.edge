@@ -38,13 +38,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#3F51B5">
-    <link rel="stylesheet" href="dist.min.css">
+
+    {{ css('dist.min') }}
 
     <base href="">
     <title>Tox - {{title}}</title>
   </head>
   <body>
-    <div id="wrapper">
+    <div id="wrapper" class="{{bodyClasses}}">
       @include('partials.header')
       @!yield($slot.main)
       @include('partials.footer')
