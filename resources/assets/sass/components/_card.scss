@@ -83,7 +83,11 @@ a.card-content:hover {
     justify-content: flex-start;
 
     .btn {
-      @include spacing(16px);
+      @include spacing(8px);
+
+      height: 36px;
+      padding: 0 12px;
+      border-radius: 3px;
     }
   }
   .right {
@@ -92,6 +96,16 @@ a.card-content:hover {
 
     .btn {
       @include spacing(8px);
+
+      height: 36px;
+      width: 36px;
+      border-radius: 100%;
+
+      &:hover {
+        background-color: #eee;
+      }
+
+      i { margin: 0; }
     }
   }
 
@@ -117,6 +131,8 @@ a.card-content:hover {
   }
 
   a.btn:hover {
+    background-color: #eee;
+    
     i, span {
       color: $color-primary;
     }
