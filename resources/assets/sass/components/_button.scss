@@ -1,0 +1,165 @@
+/**
+ * Copyright (c) 2017 skyzohkey
+ * 
+ * This software is released under the MIT License.
+ * https://opensource.org/licenses/MIT
+ */
+
+.btn-container {
+  @include flex-row();
+}
+.btn-container.align-left {
+  justify-content: flex-start;
+}
+
+.btn {
+  @include flex-row();
+  @include spacing(8px);
+
+  padding: 6px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  user-select: none;
+
+  .material-icons:first-child {
+    margin-right: 8px; 
+  }
+}
+
+@mixin btnizer($bg, $bgHover, $text, $textHover, $borderColor: '') {
+  @include transition();
+  background: $bg;
+  color: $text !important;
+
+  @if $borderColor != '' {
+    border: 1px solid $text !important;
+  }
+
+  &:hover {
+    background: $bgHover !important;
+    color: $textHover !important;
+
+    @if $borderColor != '' {
+      border-color: $bgHover !important;
+    }
+  }
+}
+
+.btn.iconLeft {
+  span {
+    padding-left: 8px !important;
+  }
+}
+.btn.iconRight {
+  span {
+    padding-right: 8px !important;
+  }
+}
+
+.btn.primary {
+  @include btnizer(
+    $color-primary-light,
+    $color-light,
+    $color-light,
+    $color-accent
+  );
+}
+.btn.primary.border {
+  @include btnizer(
+    $color-light,
+    $color-primary-hover,
+    $color-primary,
+    $color-light,
+    $color-primary-hover
+  );
+}
+
+.btn.purple {
+  @include btnizer(
+    $color-callout-main,
+    $color-light,
+    $color-light,
+    $color-callout-main
+  );
+}
+.btn.purple.border {
+  @include btnizer(
+    $color-light,
+    $color-callout-main,
+    $color-callout-main,
+    $color-light,
+    $color-callout-main
+  );
+}
+
+.btn.blue {
+  @include btnizer(
+    $color-fb,
+    $color-light,
+    $color-light,
+    $color-fb
+  );
+}
+.btn.blue.border {
+  @include btnizer(
+    $color-light,
+    $color-fb,
+    $color-fb,
+    $color-light,
+    $color-fb
+  );
+}
+
+.btn.blue-light {
+  @include btnizer(
+    $color-twitter,
+    $color-light,
+    $color-light,
+    $color-twitter
+  );
+}
+.btn.blue-light.border {
+  @include btnizer(
+    $color-light,
+    $color-twitter,
+    $color-twitter,
+    $color-light,
+    $color-twitter
+  );
+}
+
+.btn.red {
+  @include btnizer(
+    $color-google-plus,
+    $color-light,
+    $color-light,
+    $color-google-plus
+  );
+}
+.btn.red.border {
+  @include btnizer(
+    $color-light,
+    $color-google-plus,
+    $color-google-plus,
+    $color-light,
+    $color-google-plus
+  );
+}
+
+.btn.green {
+  @include btnizer(
+    $color-medium,
+    $color-light,
+    $color-light,
+    $color-medium
+  );
+}
+.btn.green.border {
+  @include btnizer(
+    $color-light,
+    $color-medium,
+    $color-medium,
+    $color-light,
+    $color-medium
+  );
+}

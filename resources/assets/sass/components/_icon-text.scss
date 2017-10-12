@@ -1,0 +1,66 @@
+/**
+ * Copyright (c) 2017 skyzohkey
+ * 
+ * This software is released under the MIT License.
+ * https://opensource.org/licenses/MIT
+ */
+
+.icon-text {
+  @include flex-column();
+  @include transition();
+
+  padding: 16px;
+  border-radius: 5px;
+
+  span.material-icons {
+    margin-bottom: 16px;
+    font-weight: normal;
+  }
+  span {
+    font-weight: bold;
+  }
+
+  &:hover {
+    background-color: rgba(255,255,255,.1);
+  }
+}
+
+.icon-line {
+  @include flex-row();
+  
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-bottom: 8px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  span.material-icons, span.mdi {
+    @include size(36px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 16px;
+    font-size: 22px;
+    color: $color-accent;
+    border-radius: 36px;
+    border: 1px dashed $color-accent;
+
+    @include breakpoint(tablet) {
+      flex: 0 0 36px;
+    }
+  }
+
+  span {
+    max-width: 50%;
+
+    @include breakpoint(tablet) {
+      flex: 1;
+      max-width: inherit;
+    }
+  }
+}

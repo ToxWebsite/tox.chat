@@ -1,0 +1,137 @@
+/**
+ * Copyright (c) 2017 SkyzohKey
+ * 
+ * This software is released under the MIT License.
+ * https://opensource.org/licenses/MIT
+ */
+
+#site-nav {
+  @include flex-row();
+
+  height: $header-height;
+  flex: 1;
+  justify-content: flex-end;
+  text-align: right;
+
+  @include breakpoint(tablet) {
+    display: none;
+  }
+
+  a, div {
+    @include spacing($links-spacing);
+    @include transition();
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    text-transform: normal;
+    font-size: 12px;
+    color: $color-light !important;
+  }
+
+  a.bold {
+    background-color: rgba($color-accent-hover, 1);
+  }
+
+  a:hover, a.active, .dropdown-handle:hover {
+    background-color: rgba(255,255,255,.1);
+  }
+
+  .dropdown {
+    display: none;
+  }
+  .dropdown-handle {
+    @include flex-row();
+    cursor: pointer;
+    color: $color-light;
+
+    img {
+      @include size(16px, 11px);
+      margin-right: 4px;
+    }
+  }
+}
+
+#mobile-menu-display { display: none; }
+#mobile-menu-display:checked ~ #site-nav {
+  @include background-gradient-primary();
+  @include shadow-2();
+
+  display: flex;
+  flex-flow: row wrap;
+  height: inherit;
+
+  position: absolute;
+  top: $header-height;
+  left: 0; right: 0;
+  padding: 16px;
+  
+  max-height: fit-content;
+  z-index: 9999999;
+
+  a {
+    display: flex;
+    flex: 0 0 35%;
+    padding: 8px 16px;
+  }
+}
+
+#features-nav {
+  @include global-padding(8px, 8px, 10%);
+  @include flex-row();
+  @include links-color($color-light, $color-accent-light);
+
+  background-color: $color-dark;
+  border-bottom: 1px solid darken($color-dark, 10%);
+
+  @include breakpoint(tablet) {
+    @include global-padding(8px, 8px, 16px);
+    
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    @include spacing(28px);
+    @include transition();
+
+    min-height: 24px;
+    min-width: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 12px;
+
+    @include breakpoint(tablet) {
+      margin: 0 !important;
+
+      span {
+        display: none;
+      }
+      span.material-icons, span.mdi {
+        display: flex;
+        font-size: 20px !important;
+        margin: 0 !important;
+      }
+    }
+
+    span.material-icons {
+      @include spacing(0px);
+      padding-right: 8px;
+      font-size: 12px;
+    }
+  }
+  a.active {
+    color: $color-accent;
+  }
+}
+#features-nav.fixed {
+  position: fixed;
+  top: 0; right: 0; left: 0;
+  z-index: 900;
+}

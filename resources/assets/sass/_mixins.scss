@@ -1,0 +1,195 @@
+/**
+ * Copyright (c) 2017 skyzohkey
+ * 
+ * This software is released under the MIT License.
+ * https://opensource.org/licenses/MIT
+ */
+
+@import "variables";
+
+/**
+ * A simple helper to define containers padding.
+ * For margins use `global-margin`.
+ * All params can be left blank.
+ *
+ * @param $top - The padding-top value. Default: $container-padding-default.
+ * @param $botton - The padding-bottom value. Default: $container-padding-default.
+ * @param $override - The override value for left/right paddings. Default: $global-padding.
+ */
+@mixin global-padding($top: $container-padding-default, $bottom: $top, $override: $global-padding) {
+  padding-left: $override;
+  padding-right: $override;
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin right-padding($top: $container-padding-default, $bottom: $top, $override: $global-padding) {
+  padding-left: 0;
+  padding-right: $override;
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin left-padding($top: $container-padding-default, $bottom: $top, $override: $global-padding) {
+  padding-left: $override;
+  padding-right: 0;
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+/**
+ * A simple helper to define containers margin.
+ * For paddings use `global-padding`.
+ * All params can be left blank.
+ *
+ * @param $top - The margin-top value. Default: $container-margin-default.
+ * @param $botton - The margin-bottom value. Default: $container-margin-default.
+ * @param $override - The override value for left/right margins. Default: $global-margin.
+ */
+@mixin global-margin($top: $container-margin-default, $bottom: $top, $override: $global-margin) {
+  margin-left: $override;
+  margin-right: $override;
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+@mixin size($width: 0px, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin links-color($color, $hover-color: $color) {
+  a {
+    color: $color;
+    text-decoration: none;
+
+    &:hover {
+      color: $hover-color;
+    }
+  }
+}
+
+@mixin headers-color($color) {
+  h1, h2, h3, h4, h5, h6 {
+    color: $color;
+    font-family: 'Maven Pro';
+    font-weight: 500;
+  }
+}
+
+@mixin background-primary() {
+  @include headers-color($color-light);
+  @include links-color($color-primary, $color-accent-light);
+
+  background-color: $color-primary;
+  color: $color-light;
+}
+
+@mixin background-dark() {
+  @include headers-color($color-primary-light);
+  background-color: $color-dark;
+  color: $color-light;
+}
+
+@mixin background-light() {
+  @include headers-color($color-primary-light);
+  background-color: $color-light;
+  color: $color-dark;
+}
+
+@mixin shadow() {
+  box-shadow: 0 $shadow-y $shadow-blur $color-shadow;
+}
+
+@mixin flex-row() {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin spacing($space-size) {
+  margin-right: $space-size;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@mixin transition() {
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  //transition: all 250ms linear;
+}
+
+@mixin shadow-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+@mixin shadow-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+@mixin shadow-3 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+@mixin shadow-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+@mixin shadow-5 {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+/// Mixin printing a linear-gradient
+/// as well as a plain color fallback
+/// and the `-webkit-` prefixed declaration
+/// @access public
+/// @param {Keyword | Angle} $direction - Linear gradient direction
+/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+@mixin background-gradient-primary() {
+  @include headers-color($color-light);
+  @include links-color($color-accent-light, $color-primary-light);
+
+  background: $color-primary; // For older browsers.
+  background: linear-gradient(45deg, $color-primary, $color-accent);
+  color: $color-light;
+
+  .icon-line span.mdi, .icon-line span.material-icons {
+    color: $color-light !important;
+    border-color: $color-light !important;
+  }
+}
+
+@mixin background-gradient-dark() {
+  background: $color-dark; // For older browsers.
+  background: linear-gradient(45deg, $color-dark, $color-darker);
+  color: $color-light;
+}
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 70em) { @content ; }
+  }
+  @else if $point == laptop {
+    @media (min-width: 64em) { @content ; }
+  }
+  @else if $point == tablet {
+    @media (max-width: 769px) { @content ; }
+  }
+  @else if $point == phablet {
+    @media (max-width: 361px)  { @content ; }
+  }
+  @else if $point == mobileonly {
+    @media (max-width: 37.5em)  { @content ; }
+  }
+}

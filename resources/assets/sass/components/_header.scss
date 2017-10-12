@@ -1,0 +1,85 @@
+/**
+ * Copyright (c) 2017 skyzohkey
+ *
+ * This software is released under the MIT License.
+ * https://opensource.org/licenses/MIT
+ */
+
+header#site-header {
+  @include global-padding(0, 0, $menu-padding);
+  @include links-color($color-light);
+  @include background-gradient-primary();
+  @include flex-row();
+  @include shadow-1();
+
+  height: $header-height;
+  z-index: 100;
+
+  @include breakpoint(tablet) {
+    @include global-padding(0, 0, $phablet-menu-padding);
+
+    height: inherit;
+    min-height: $header-height;
+    max-height: $header-height;
+    justify-content: space-between;
+    padding-left: 0;
+  }
+
+  #tox-logo {
+    background: transparent url('./images/tox-logo@1x.png') no-repeat center left; // Old browsers.
+    background: transparent url('./images/tox-logo.svg') no-repeat center left;
+
+    width: 75px;
+    height: 30px;
+    padding: 15px;
+
+    text-indent: -9999px;
+
+    @include breakpoint(tablet) {
+      background-position-x: center;
+    }
+  }
+
+  #mobile-menu-trigger {
+    color: $color-light;
+    display: none;
+
+    @include breakpoint(tablet) {
+      display: flex;
+    }
+  }
+
+  // See _navigation.scss for the navbar.
+}
+
+header#site-header.fixed {
+  position: fixed;
+  top: 0; right: 0; left: 0;
+}
+
+header.page-title {
+  @include global-padding(16px);
+  @include background-gradient-primary();
+  @include headers-color($color-light);
+
+  justify-content: center;
+  text-align: center;
+
+  //min-height: 150px;
+}
+header.page-title.overlap {
+  height: 160px;
+}
+header.no-bg {
+  @include global-padding(8px);
+
+  background: none;
+
+  @include breakpoint(tablet) {
+    @include global-padding(8px, 8px, $phablet-global-padding);
+  }
+}
+header.color-primary h1 {
+  text-align: left;
+  color: $color-primary !important;
+}
