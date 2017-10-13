@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2017 SkyzohKey
- * 
+ *
  * This software is released under the MIT License.
  * https://opensource.org/licenses/MIT
  */
@@ -27,9 +27,6 @@
   });
 
   App.prototype.init = function() {
-    console.log(this.header);
-    console.log(this.secondNav);
-
     this.enableScrollSpy();
     this.addEvents();
   }
