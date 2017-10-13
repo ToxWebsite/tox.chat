@@ -8,24 +8,29 @@ const showdown  = require('showdown');
 
 class BlogController {
 
-  async index({ view }) {
+  async index({ view, params, request }) {
+    const pageNumber = Number(params.page) || 1;
     const categories = await BlogCategory.all();
 
     // Eagerloading to avoid n+1 requests.
     const posts = await BlogPost
       .query()
       .orderBy('updated_at', 'desc')
-      .fetch();
+      .paginate(pageNumber, 6);
 
     return view.render('frontend.blog.home', {
       categories: categories.toJSON(),
       posts: posts.toJSON(),
+      nextPage: pageNumber + 1,
+      prevPage: pageNumber - 1,
+      canGoNext: (posts.pages.lastPage > pageNumber),
+      canGoBack: (pageNumber > 1),
     });
   }
 
-  async show({ view, params, request, response }) {
+  async showPost({ view, params, request, response }) {
     const categories = await BlogCategory.all();
-    const postPromise = await BlogPost.query().where('slug', params.slug).first();
+    const postPromise = await BlogPost.find(params.id);
     const postJSON = postPromise.toJSON();
     const author = await User.find(postJSON.user_id);
 

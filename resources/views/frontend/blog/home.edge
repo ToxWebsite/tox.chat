@@ -9,54 +9,76 @@
 </header>
 <div id="blog-wrapper">
   <div id="blog-posts">
-    @each(post in posts)
-    <article class="card hover blog-article">
-      <header class="card-header">
-        <img
-          src="{{ post.author.avatar_url || 'https://picsum.photos/48x48'}}"
-          class="avatar"
-        >
-        <div class="text-container">
-          <h4>{{ post.author.username }}</h4>
-          <small>{{ post.author.bio }}</small>
-        </div>
-      </header>
-      <a class="card-content" href="{{ route('blog:post', { slug: post.slug }) }}">
-        <h1 class="title">{{post.title}}</h1>
-        <p>
-          {{post.summary}}
-        </p>
-      </a>
-      <footer class="card-footer">
-        <div class="btn-container left">
-          <span class="btn btn-icon">
-            <i class="mdi mdi-heart"></i>
-            <span class="text">{{post.likes}}</span>
-          </span>
-          <a href="#" class="btn btn-icon">
-            <i class="mdi mdi-comment"></i>
-            <span class="text">{{post.comments}}</span>
-          </a>
-        </div>
-        <div class="btn-container right">
-          <a href="{{ route('sharer:fb', { postId: post.id }) }}" class="btn" title="Share on Facebook !">
-            <i class="mdi mdi-facebook"></i>
-          </a>
-          <a href="{{ route('sharer:tw', { postId: post.id }) }}" class="btn" title="Share on Twitter !">
-            <i class="mdi mdi-twitter"></i>
-          </a>
-          <a href="{{ route('sharer:gp', { postId: post.id }) }}" class="btn" title="Share on Google+ !">
-            <i class="mdi mdi-google-plus"></i>
-          </a>
-          <a href="{{ route('sharer:md', { postId: post.id }) }}" class="btn" title="Share on Medium !">
-            <i class="mdi mdi-medium"></i>
-          </a>
-        </div>
-      </footer>
-    </article>
+    @each(post in posts.data)
+      @if(post !== null || post !== undefined)
+      <article class="card hover blog-article">
+        <header class="card-header">
+          <img
+            src="{{ post.author.avatar_url || 'https://picsum.photos/48x48'}}"
+            class="avatar"
+          >
+          <div class="text-container">
+            <h4>{{ post.author.username }}</h4>
+            <small>{{ post.author.bio }}</small>
+          </div>
+        </header>
+        <a class="card-content" href="{{ route('blog:post', { id: post.id, slug: post.slug }) }}">
+          <h1 class="title">{{post.title}}</h1>
+          <p>
+            {{post.summary}}
+          </p>
+        </a>
+        <footer class="card-footer">
+          <div class="btn-container left">
+            <span class="btn btn-icon">
+              <i class="mdi mdi-heart"></i>
+              <span class="text">{{post.likes}}</span>
+            </span>
+            <a href="#" class="btn btn-icon">
+              <i class="mdi mdi-comment"></i>
+              <span class="text">{{post.comments}}</span>
+            </a>
+          </div>
+          <div class="btn-container right">
+            <a href="{{ route('sharer:fb', { postId: post.id }) }}" class="btn" title="Share on Facebook !">
+              <i class="mdi mdi-facebook"></i>
+            </a>
+            <a href="{{ route('sharer:tw', { postId: post.id }) }}" class="btn" title="Share on Twitter !">
+              <i class="mdi mdi-twitter"></i>
+            </a>
+            <a href="{{ route('sharer:gp', { postId: post.id }) }}" class="btn" title="Share on Google+ !">
+              <i class="mdi mdi-google-plus"></i>
+            </a>
+            <a href="{{ route('sharer:md', { postId: post.id }) }}" class="btn" title="Share on Medium !">
+              <i class="mdi mdi-medium"></i>
+            </a>
+          </div>
+        </footer>
+      </article>
+      @endif
     @else
-    <p>No post added yet.</p>
+    <aside class="card with-padding">
+      <p>No post added yet.</p>
+    </aside>
     @endeach
+
+    <div class="pagination">
+      @if(canGoBack == true)
+      <a href="{{ route('blog', { page: prevPage }) }}"
+        title="Previous posts"
+        class="btn icon-round back-btn">
+        <i class="mdi mdi-arrow-left"></i>
+      </a>
+      @endif
+      <span class="spacer"></span>
+      @if(canGoNext == true)
+      <a href="{{ route('blog', { page: nextPage }) }}"
+        title="Next posts"
+        class="btn icon-round back-btn">
+        <i class="mdi mdi-arrow-right"></i>
+      </a>
+      @endif
+    </div>
   </div>
   <div id="sidebar">
     <aside id="tags" class="card with-padding">

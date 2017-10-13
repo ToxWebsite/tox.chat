@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 16px 0;
+
+  .btn {
+    @include transition();
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i { color: rgba(0,0,0,.54) }
+
+    &:hover {
+      background-color: #eee;
+
+      i { color: rgba(0,0,0,.87) }
+    }
+  }
+
+  span {
+    flex: 1;
+  }
+}
