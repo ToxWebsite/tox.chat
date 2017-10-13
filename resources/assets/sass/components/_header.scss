@@ -55,6 +55,10 @@ header#site-header {
 header#site-header.fixed {
   position: fixed;
   top: 0; right: 0; left: 0;
+
+  #site-nav .bold {
+    background-color: rgba($color-accent-hover, 1);;
+  }
 }
 
 header.page-title {
