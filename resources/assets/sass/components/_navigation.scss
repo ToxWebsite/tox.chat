@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2017 SkyzohKey
- * 
+ *
  * This software is released under the MIT License.
  * https://opensource.org/licenses/MIT
  */
@@ -33,7 +33,7 @@
   }
 
   a.bold {
-    background-color: rgba($color-accent-hover, 1);
+    border: 2px solid rgba($color-accent-hover, 1);
   }
 
   a:hover, a.active, .dropdown-handle:hover {
@@ -68,7 +68,7 @@
   top: $header-height;
   left: 0; right: 0;
   padding: 16px;
-  
+
   max-height: fit-content;
   z-index: 9999999;
 
@@ -89,7 +89,7 @@
 
   @include breakpoint(tablet) {
     @include global-padding(8px, 8px, 16px);
-    
+
     display: flex;
     justify-content: space-between;
   }
