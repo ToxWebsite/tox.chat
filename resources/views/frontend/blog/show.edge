@@ -14,10 +14,13 @@
   <div id="blog-posts">
     <article class="card hover blog-article">
       <header class="card-header">
-        <img src="https://picsum.photos/48x48" class="avatar">
+        <img
+          src="{{ author.avatar || 'https://picsum.photos/48x48'}}"
+          class="avatar"
+        >
         <div class="text-container">
           <h4>{{ author.username }}</h4>
-          <small><!-- TODO: Biography. --></small>
+          <small>{{ author.bio }}</small>
         </div>
       </header>
       <div class="card-content">

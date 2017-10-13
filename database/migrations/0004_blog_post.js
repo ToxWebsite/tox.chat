@@ -10,9 +10,9 @@ class BlogPostSchema extends Schema {
       table.integer('user_id').references('id').inTable('users');
       table.string('slug', 80).notNullable().unique();
       table.string('title', 150).notNullable();
-      table.string('summary', 250).notNullable();
-      table.string('markdown').notNullable();
-      table.string('html').notNullable();
+      table.text('summary').notNullable();
+      table.text('markdown', 'longtext').notNullable();
+      table.text('html', 'longtext').notNullable();
       table.integer('likes').defaultTo(0);
       table.integer('comments').defaultTo(0);
       table.timestamps();
