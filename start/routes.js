@@ -19,7 +19,7 @@ Route.group(() => {
 // Blog stuff.
 Route.group(() => {
   Route.get('/:page?', 'BlogController.index').as('blog');
-  Route.get('/:id?/:slug', 'BlogController.showPost').as('blog:post');
+  Route.get('/:id?/:slug?', 'BlogController.showPost').as('blog:post');
   Route.get('/tags/:slug', 'BlogController.showTag').as('blog:showTags');
   Route.get('rss', 'BlogController.showRSS').as('blog:rss');
 }).prefix('blog');

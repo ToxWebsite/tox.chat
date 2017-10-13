@@ -9,7 +9,7 @@ class BlogPost extends Model {
   }
 
   author () {
-    return this.hasOne('App/Models/User');
+    return this.belongsTo('App/Models/User');
   }
 
   category () {

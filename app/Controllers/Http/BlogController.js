@@ -15,6 +15,7 @@ class BlogController {
     // Eagerloading to avoid n+1 requests.
     const posts = await BlogPost
       .query()
+      .with('author')
       .orderBy('updated_at', 'desc')
       .paginate(pageNumber, 6);
 
