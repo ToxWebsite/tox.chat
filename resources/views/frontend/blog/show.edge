@@ -15,16 +15,16 @@
     <article class="card hover blog-article">
       <header class="card-header">
         <img
-          src="{{ author.avatar_url || 'https://picsum.photos/48x48'}}"
+          src="{{ post.author.avatar_url || 'https://picsum.photos/48x48'}}"
           class="avatar"
         >
         <div class="text-container">
-          <h4>{{ author.username }}</h4>
-          <small>{{ author.bio }}</small>
+          <h4>{{ post.author.username }}</h4>
+          <small>{{ post.author.bio }}</small>
         </div>
       </header>
       <div class="card-content">
-        <div class="markdown-body">{{{ postContent }}}</div>
+        <div class="markdown-body">{{{ postHTML }}}</div>
       </div>
       <footer class="card-footer">
         <div class="btn-container left">
@@ -53,12 +53,12 @@
         </div>
       </footer>
     </article>
-    <h1>Comments ({{post.comments}})</h1>
+    <h1 id="comments">Comments ({{post.comments}})</h1>
     <article class="card hover blog-article">
       <header class="card-header">
         <img src="https://picsum.photos/48x48" class="avatar">
         <div class="text-container">
-          <h4>{{ author.username }}</h4>
+          <h4>{{ post.author.username }}</h4>
           <small><!-- TODO: Biography. --></small>
         </div>
       </header>
@@ -80,7 +80,7 @@
       <header class="card-header">
         <img src="https://picsum.photos/48x48" class="avatar">
         <div class="text-container">
-          <h4>{{ author.username }}</h4>
+          <h4>{{ post.author.username }}</h4>
           <small><!-- TODO: Biography. --></small>
         </div>
       </header>
@@ -98,45 +98,6 @@
         </div>
       </footer>
     </article>
-  </div>
-  <div id="sidebar">
-    <aside id="tags" class="card with-padding">
-      <header class="card-header no-padding">
-        <h1>Tags</h1>
-      </header>
-      <div id="tags-cloud" class="chip-container">
-        @each(tag in categories)
-          <a href="{{ route('blog:showTags', { slug: tag.slug }) }}" class="chip">
-            {{ tag.name }}
-          </a>
-        @else
-          <a class="chip">No tags added yet.</a>
-        @endeach
-      </div>
-    </aside>
-    <aside id="tags" class="card">
-      <header class="card-header">
-        <h1>Get in touch</h1>
-      </header>
-      <div class="list">
-        <a href="#">
-          <i class="mdi mdi-comment-processing-outline"></i>
-          Community IRC
-        </a>
-        <a href="#">
-          <i class="mdi mdi-twitter"></i> Follow us on Twitter!
-        </a>
-        <a href="#">
-          <i class="mdi mdi-facebook"></i> Like our Facebook page!
-        </a>
-        <a href="#">
-          <i class="mdi mdi-google-plus"></i> We are on Google+
-        </a>
-        <a href="#">
-          <i class="mdi mdi-github-circle"></i> Contribute on GitHub!
-        </a>
-      </div>
-    </aside>
   </div>
 </div>
 @endcomponent

@@ -30,20 +30,19 @@ class BlogController {
   }
 
   async showPost({ view, params, request, response }) {
-    const categories = await BlogCategory.all();
-    const postPromise = await BlogPost.find(params.id);
-    const postJSON = postPromise.toJSON();
-    const author = await User.find(postJSON.user_id);
+    const post = await BlogPost
+      .query()
+      .with('author')
+      .where('id', params.id)
+      .fetch();
 
     const parser = new showdown.Converter();
     parser.setFlavor('github');
-    const postContent = parser.makeHtml(postJSON.markdown);
+    const postHTML = parser.makeHtml(post.toJSON()[0].markdown);
 
     return view.render('frontend.blog.show', {
-      post: postJSON,
-      postContent: postContent,
-      author: author.toJSON(),
-      categories: categories.toJSON(),
+      post: post.toJSON()[0],
+      postHTML: postHTML,
     });
   }
 
