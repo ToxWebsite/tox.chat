@@ -12,10 +12,13 @@
     @each(post in posts)
     <article class="card hover blog-article">
       <header class="card-header">
-        <img src="https://picsum.photos/48x48" class="avatar">
+        <img
+          src="{{ post.author.avatar_url || 'https://picsum.photos/48x48'}}"
+          class="avatar"
+        >
         <div class="text-container">
-          <h4>{{ post.user.username }}</h4>
-          <small><!-- TODO: Biography. --></small>
+          <h4>{{ post.author.username }}</h4>
+          <small>{{ post.author.bio }}</small>
         </div>
       </header>
       <a class="card-content" href="{{ route('blog:post', { slug: post.slug }) }}">

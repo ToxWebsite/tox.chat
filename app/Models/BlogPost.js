@@ -8,12 +8,12 @@ class BlogPost extends Model {
     this.addHook('beforeCreate', 'BlogPost.compileMarkdown');
   }
 
-  user () {
+  author () {
     return this.hasOne('App/Models/User');
   }
 
-  categories () {
-    return this.hasMany('App/Models/BlogCategory');
+  category () {
+    return this.hasOne('App/Models/BlogCategory');
   }
 }
 

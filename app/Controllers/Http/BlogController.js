@@ -13,7 +13,11 @@ class BlogController {
     const posts = await BlogPost
       .query()
       .orderBy('updated_at', 'desc')
+      .with('author')
+      .with('category')
       .fetch();
+
+    console.log(posts.toJSON());
 
     return view.render('frontend.blog.home', {
       categories: categories.toJSON(),
@@ -43,6 +47,8 @@ class BlogController {
       .query()
       .where('category_id', tag.id)
       .orderBy('updated_at', 'desc')
+      .with('author')
+      .with('category')
       .fetch();
 
     return view.render('frontend.blog.home', {
