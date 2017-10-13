@@ -17,8 +17,6 @@ class BlogController {
       .orderBy('updated_at', 'desc')
       .fetch();
 
-    console.log(posts.toJSON());
-
     return view.render('frontend.blog.home', {
       categories: categories.toJSON(),
       posts: posts.toJSON(),
