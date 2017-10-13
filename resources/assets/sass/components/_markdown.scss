@@ -198,7 +198,8 @@
 .markdown-body table {
     display: block;
     width: 100%;
-    overflow: auto
+    overflow: auto;
+    border-collapse: collapse;
 }
 .markdown-body table th {
     font-weight: 600
