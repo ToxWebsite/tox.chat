@@ -12,7 +12,6 @@ class BlogController {
     // Eagerloading to avoid n+1 requests.
     const posts = await BlogPost
       .query()
-      .with('user')
       .orderBy('updated_at', 'desc')
       .fetch();
 
@@ -42,7 +41,6 @@ class BlogController {
     // Eagerloading to avoid n+1 requests.
     const posts = await BlogPost
       .query()
-      .with('user')
       .where('category_id', tag.id)
       .orderBy('updated_at', 'desc')
       .fetch();
