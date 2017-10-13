@@ -32,6 +32,7 @@ class BlogController {
     const author = await User.find(postJSON.user_id);
 
     const parser = new showdown.Converter();
+    parser.setFlavor('github');
     const postContent = parser.makeHtml(postJSON.markdown);
 
     return view.render('frontend.blog.show', {
