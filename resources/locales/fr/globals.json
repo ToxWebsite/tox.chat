@@ -1,11 +1,11 @@
 {
-  "keywords": "tox, messenger, privacy, peer-to-peer, p2p, encrypted, encryption, secure, open-source, foss, free, skype like, discord replacement, telegram alternative, modern, communicate, talk, chat, im, surveillance, easy-to-use, no ads, network, decentralized, snowden, protocol, no servers, end-to-end, distributed, client, toxcore, instant messaging, voice, video, screen streaming, file transfers, group chats, 1337",
-  "menu": {
-    "downloads": "Téléchargements",
-    "blog": "Blog",
-    "learn-more": "À propos",
-    "features": "Fonctionalités",
-    "support": "Support",
-    "developers": "Développeurs"
-  }
+    "menu": {
+        "downloads": "T\u00e9l\u00e9chargements",
+        "blog": "Blog",
+        "learn-more": "\u00c0 propos",
+        "features": "Fonctionnalit\u00e9s",
+        "support": "Support",
+        "developers": "D\u00e9veloppeurs"
+    },
+    "keywords": "tox, messagerie, vie priv\u00e9e, pair-\u00e0-pair, p2p, chiffr\u00e9, chiffrement, s\u00e9curis\u00e9, open-source, foss, libre, gratuit, moderne, communiquer, parler, chatter, messagerie instantan\u00e9e, surveillance, simple \u00e0 utiliser, pas de pubs, r\u00e9seau, d\u00e9centralis\u00e9, snowden, protocole, pas de servers, bout-en-bout, distribu\u00e9, client, toxcore, voix sur IP, vid\u00e9o, partage d'\u00e9cran, transfert de fichiers, groupes de discussions, 1337"
 }
