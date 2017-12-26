@@ -25,7 +25,7 @@ ul {
 .list a {
   @include transition();
 
-  flex: 1;
+  flex: 0 0 36px;
   height: 36px;
 
   display: flex;
@@ -34,16 +34,17 @@ ul {
 
   padding: 0 24px;
 
-  color: rgba(0,0,0,.54);
+  color: rgba(0, 0, 0, 0.54);
   text-decoration: none;
 
-  .mdi, .material-icons {
+  .mdi,
+  .material-icons {
     margin-right: 16px;
   }
 
   &:hover {
     background-color: #ebebeb;
-    color: rgba(0,0,0,.87);
+    color: rgba(0, 0, 0, 0.87);
   }
   &:active {
     background-color: #dbdbdb;
