@@ -6,7 +6,7 @@ trait('Test/Browser');
 test('Visit home page', async ({ assert, browser }) => {
   const page = await browser.visit('/');
   assert.equal(page.status, 200);
-  page.assertTitle('Tox - A new kind of Instant Messaging'););
+  page.assertTitle('Tox - A new kind of Instant Messaging');
 });
 
 test('Visit downloads page', async ({ assert, browser }) => {
