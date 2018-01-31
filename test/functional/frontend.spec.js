@@ -47,7 +47,7 @@ test('Visit developers hub', async ({ assert, browser }) => {
 
 /**
 * @todo Check all the links on Downloads page.
-* @body We might want to be sure that every link on the downloads page is working fine before pushing anything. :)
+* @body We may want to be sure that every link on the downloads page is working fine before pushing anything. :)
 */
 test('Visit homepage and go to Downloads page', async ({ assert, browser }) => {
   const page = await browser.visit('/');
